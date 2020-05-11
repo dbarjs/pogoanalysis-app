@@ -1,14 +1,14 @@
 <template>
   <div
     v-if="pokemon"
-    class="flex flex-col items-start mb-4 bg-white p-6 rounded-lg shadow-xl select-none"
+    class="pokemon flex flex-col items-start mb-4 transition-all duration-300 cursor-pointer bg-white p-6 rounded-lg shadow-xl select-none"
     :class="color"
+    @click="select"
   >
     <slot></slot>
     <h1 class="text-xl font-bold text-left">
       #{{ pokemon.dex }} {{ pokemon.speciesName }}
     </h1>
-    {{ pokemon.baseStats }}
     <p v-if="!hideDetails">speciesId: {{ pokemon.speciesId }}</p>
     <p v-if="!hideDetails">Stats: {{ pokemon.baseStats }}</p>
     <p v-if="!hideDetails">Types: {{ pokemon.types }}</p>
@@ -20,6 +20,7 @@
 </template>
 
 <script>
+import { pokemonsRef, increment } from '~/firebase'
 export default {
   props: {
     pokemon: {
@@ -74,8 +75,29 @@ export default {
           return 'bg-gray-300'
       }
     }
+  },
+  methods: {
+    select() {
+      if (pokemonsRef) {
+        pokemonsRef.doc(this.pokemon.speciesId).set(
+          {
+            ...this.pokemon,
+            usage: {
+              greatLeague: increment
+            }
+          },
+          {
+            merge: true
+          }
+        )
+      }
+    }
   }
 }
 </script>
 
-<style></style>
+<style>
+.pokemon:hover {
+  @apply bg-opacity-75;
+}
+</style>

@@ -17,7 +17,7 @@ export default {
 
 <style>
 body {
-  @apply bg-gray-900;
+  @apply bg-gray-100;
 }
 html {
   font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI',

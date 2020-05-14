@@ -1,4 +1,4 @@
-export default firebaseConfig = {
+export default {
   apiKey: 'AIzaSyAS5xHYWIMr89ouauuIfZUWVx5bqIhmBMU',
   authDomain: 'pogoanalysis-app.firebaseapp.com',
   databaseURL: 'https://pogoanalysis-app.firebaseio.com',

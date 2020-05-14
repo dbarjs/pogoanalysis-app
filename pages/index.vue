@@ -1,23 +1,17 @@
 <template>
-  <search></search>
+  <div>
+    <search></search>
+    <search-result></search-result>
+  </div>
 </template>
 
 <script>
 import Search from '~/components/Search.vue'
+import SearchResult from '~/components/SearchResult.vue'
 export default {
   components: {
-    Search
-  },
-  computed: {
-    data() {
-      return this.$store.getters.getData
-    },
-    pokemons() {
-      return this.$store.getters.getPokemons
-    },
-    moves() {
-      return this.$store.getters.getMoves
-    }
+    Search,
+    SearchResult
   }
 }
 </script>

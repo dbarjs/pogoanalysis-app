@@ -6,6 +6,11 @@
  */
 module.exports = {
   theme: {
+    extend: {
+      opacity: {
+        '10': '0.1'
+      }
+    },
     colors: {
       black: '#000000',
       white: '#FFFFFF',

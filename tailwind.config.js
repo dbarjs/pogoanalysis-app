@@ -11,6 +11,9 @@ module.exports = {
         '10': '0.1'
       }
     },
+    fontFamily: {
+      display: ['Roboto']
+    },
     colors: {
       black: '#000000',
       white: '#FFFFFF',
@@ -317,6 +320,8 @@ module.exports = {
       }
     }
   },
-  variants: {},
+  variants: {
+    margin: ['responsive', 'last', 'hover', 'focus']
+  },
   plugins: []
 }

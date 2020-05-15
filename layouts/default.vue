@@ -1,15 +1,18 @@
 <template>
-  <div>
+  <main id="app" class="px-4">
     <app-bar></app-bar>
+    <usage-stack-view></usage-stack-view>
     <nuxt />
-  </div>
+  </main>
 </template>
 
 <script>
 import AppBar from '~/components/AppBar.vue'
+import UsageStackView from '~/components/UsageStackView.vue'
 export default {
   components: {
-    AppBar
+    AppBar,
+    UsageStackView
   },
   middleware: 'fetch'
 }
@@ -20,8 +23,7 @@ body {
   @apply bg-gray-100;
 }
 html {
-  font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI',
-    Roboto, 'Helvetica Neue', Arial, sans-serif;
+  font-family: Roboto, 'Helvetica Neue', Arial, sans-serif;
   font-size: 16px;
   word-spacing: 1px;
   -ms-text-size-adjust: 100%;

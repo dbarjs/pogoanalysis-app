@@ -1,12 +1,12 @@
 <template>
   <div
     v-if="pokemon"
-    class="pokemon flex flex-col items-start mb-4 transition-all duration-300 cursor-pointer bg-white p-6 rounded-lg shadow-xl select-none"
+    class="pokemon flex flex-col items-start mb-4 transition-all duration-300 cursor-pointer bg-white p-6 rounded-lg shadow-lg select-none"
     :class="color"
     @click="select"
   >
     <slot></slot>
-    <h1 class="text-xl font-bold text-left">
+    <h1 class="text-lg font-bold text-left">
       #{{ pokemon.dex }} {{ pokemon.speciesName }}
     </h1>
     <p v-if="!hideDetails">speciesId: {{ pokemon.speciesId }}</p>
@@ -78,7 +78,8 @@ export default {
   },
   methods: {
     select() {
-      if (pokemonsRef) {
+      this.$store.commit('usage/ADD_POKEMON', this.pokemon)
+      if (!pokemonsRef) {
         pokemonsRef.doc(this.pokemon.speciesId).set(
           {
             ...this.pokemon,
